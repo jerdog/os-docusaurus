@@ -12,6 +12,11 @@ const config = {
   url: 'https://your-docusaurus-site.example.com',  // Set the production url of your site here
   baseUrl: '/',   // Set the /<baseUrl>/ pathname under which your site is served
 
+  // colorMode: {
+  //   defaultMode: 'light',
+  //   disableSwitch: true,
+  //   respectPrefersColorScheme: false,
+  // }
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
@@ -44,9 +49,18 @@ const config = {
     ],
   ],
 
+  plugins: [
+    // '@docusaurus/plugin-content-docs'
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'light', // "light" | "dark"
+        disableSwitch: true,  // disable ability to swtich between modes
+        respectPrefersColorScheme: false,
+      },
       // Replace with your project's social card
       // image: 'img/docusaurus-social-card.jpg',
       navbar: {
