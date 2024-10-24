@@ -1,50 +1,60 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
+// import { useColorMode } from '@docusaurus/theme-common';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    id: 'partner-place',
+    title: 'PartnerPlace',
+    Svg: require('@site/static/img/partner-place.svg').default,
+    url: '/intro/',
+    color: '#EC764C',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Documentation for OneStream Partners developing Value-Added Solutions.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    id: 'open-place',
+    title: 'OpenPlace',
+    Svg: require('@site/static/img/open-place.svg').default,
+    url: '/intro/',
+    color: '#F2A73D',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Documentation for building open software for the OneStream Community.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    id: 'standards',
+    title: 'Standards & Practices',
+    Svg: require('@site/static/img/standards.svg').default,
+    url: '/intro/',
+    color: '#728AC5',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Development standards and practices for creating OneStream solutions.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({Svg, url, color, title, description, id}) {
   return (
     <div className={clsx('col col--4')}>
+      <Link to={url}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <Svg fill={color} id={id} className={styles.featureSvg} style={{['color']: color}} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
+        <Heading as="h3" style={{['color']: color}}>{title}</Heading>
         <p>{description}</p>
       </div>
+      </Link>
     </div>
   );
 }
