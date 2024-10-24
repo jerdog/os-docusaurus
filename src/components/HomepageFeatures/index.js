@@ -8,7 +8,7 @@ const FeatureList = [
   {
     id: 'partner-place',
     title: 'PartnerPlace',
-    Svg: require('@site/static/img/partner-place.svg').default,
+    Svg: require('@site/static/img/partner-place-white.svg').default,
     url: '/intro/',
     color: '#EC764C',
     description: (
@@ -20,7 +20,7 @@ const FeatureList = [
   {
     id: 'open-place',
     title: 'OpenPlace',
-    Svg: require('@site/static/img/open-place.svg').default,
+    Svg: require('@site/static/img/open-place-white.svg').default,
     url: '/intro/',
     color: '#F2A73D',
     description: (
@@ -47,7 +47,7 @@ function Feature({Svg, url, color, title, description, id}) {
   return (
     <div className={clsx('col col--4')}>
       <Link to={url}>
-      <div className="text--center">
+      <div className="text--center" style={{['background-color']: color}}>
         <Svg fill={color} id={id} className={styles.featureSvg} style={{['color']: color}} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
