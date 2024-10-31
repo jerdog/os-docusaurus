@@ -32,8 +32,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title}`}
+      description="OneStream Solution Exchange Documentation for building solutions on OneStream's Intelligent Finance Platform./>">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
