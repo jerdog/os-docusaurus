@@ -9,7 +9,7 @@ const FeatureList = [
     id: 'partner-place',
     title: 'PartnerPlace',
     Svg: require('@site/static/img/partner-place-white.svg').default,
-    url: '/intro/',
+    url: '/partnerplace/intro/',
     color: '#EC764C',
     description: (
       <>
@@ -21,7 +21,7 @@ const FeatureList = [
     id: 'open-place',
     title: 'OpenPlace',
     Svg: require('@site/static/img/open-place-white.svg').default,
-    url: '/intro/',
+    url: '/openplace/intro/',
     color: '#F2A73D',
     description: (
       <>
@@ -33,7 +33,7 @@ const FeatureList = [
     id: 'standards',
     title: 'Standards & Practices',
     Svg: require('@site/static/img/standards.svg').default,
-    url: '/intro/',
+    url: '/standards/intro/',
     color: '#728AC5',
     description: (
       <>
