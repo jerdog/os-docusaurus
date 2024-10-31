@@ -33,6 +33,9 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
         docs: {
           routeBasePath: '/', // Serve the docs at the site's root
           // sidebarPath: './sidebars.js',
@@ -41,16 +44,45 @@ const config = {
           // editUrl:
           //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
+        // Will be passed to @docusaurus/plugin-content-blog (false to disable)
         blog: false,
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+        // Will be passed to @docusaurus/plugin-content-pages (false to disable)
+        pages: {},
+        // Will be passed to @docusaurus/plugin-sitemap (false to disable)
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+          createSitemapItems: async (params) => {
+            const {defaultCreateSitemapItems, ...rest} = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.filter((item) => !item.url.includes('/page/'));
+          },
         },
+        // Will be passed to @docusaurus/plugin-google-gtag (only enabled when explicitly specified)
+        gtag: false,
+        // Will be passed to @docusaurus/plugin-google-tag-manager (only enabled when explicitly specified)
+        googleTagManager: false,
+        // DEPRECATED: Will be passed to @docusaurus/plugin-google-analytics (only enabled when explicitly specified)
+        googleAnalytics: false,
       }),
     ],
   ],
 
   plugins: [
+    [
     // '@docusaurus/plugin-content-docs'
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 70,
+        max: 1032, // max resized image's size.
+        min: 640, // min resized image's size.
+        steps: 2, // the max number of images generated between min and
+        disableInDev: false, // disable the plugin in development mode
+      },
+    ],
   ],
 
   themeConfig:
