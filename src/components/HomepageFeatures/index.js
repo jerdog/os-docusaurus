@@ -47,7 +47,7 @@ function Feature({Svg, url, color, title, description, id}) {
   return (
     <div className={clsx('col col--4')}>
       <Link to={url}>
-      <div className="text--center" style={{['background-color']: color}}>
+      <div className="text--center" style={{["backgroundColor"]: color}}>
         <Svg fill={color} id={id} className={styles.featureSvg} style={{['color']: color}} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
