@@ -1,5 +1,7 @@
 ---
 sidebar_position: 1
+displayed_sidebar: openplaceSidebar
+title: Getting Started
 ---
 
 # Tutorial Intro

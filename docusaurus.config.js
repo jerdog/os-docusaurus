@@ -38,7 +38,7 @@ const config = {
         },
         docs: {
           routeBasePath: '/', // Serve the docs at the site's root
-          // sidebarPath: './sidebars.js',
+          sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -95,6 +95,12 @@ const config = {
       },
       // Replace with your project's social card
       // image: 'img/docusaurus-social-card.jpg',
+      docs: {
+        sidebar: {
+          hideable: false,
+          autoCollapseCategories: true,
+        },
+      },
       navbar: {
         title: 'Solution Exchange Documentation',
         logo: {
