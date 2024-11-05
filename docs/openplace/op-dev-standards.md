@@ -1,5 +1,5 @@
 ---
-#sidebar_position:1
+sidebar_position: 2
 title: OpenPlace Solution Development Standards
 sidebar_label: Development Standards
 ---
@@ -62,7 +62,7 @@ Before submitting solutions to OpenPlace, it is expected that developers have pe
 
 #### Code Scanning
 
-- All solutions created on Platform Version 8.0 (MP3-1618) will be scanned using Marketplace Solution Tools (MST) and/or other code-checking tools. 
+- All solutions created on Platform Version 8.0 (MP3-1618) will be scanned using Marketplace Solution Tools (MST) and/or other code-checking tools.
 - For solutions on v8.0 developers should use MST during development and before submission. MST checks for various potential issues, including:
   - Unsafe SQL queries
   - Unused SQL queries within command-type parameters
