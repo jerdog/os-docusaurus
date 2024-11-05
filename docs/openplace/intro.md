@@ -1,49 +1,24 @@
 ---
 sidebar_position: 1
 displayed_sidebar: openplaceSidebar
-title: Getting Started
+title: Introduction
 ---
 
-# Tutorial Intro
+The purpose of this document is to provide guidance to those creating solutions (including Blueprints, Utilities, Templates, etc.) to be delivered via OpenPlace through OneStream’s Solution Exchange. This document is intended to be a living document, and will be updated as needed.
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## OneStream’s OpenPlace
 
-## Getting Started
+OpenPlace is a part of the OneStream Solution Exchange, where customers, professional services, development partners, and OneStreamers can submit coded and documented solutions that are:
 
-Get started by **creating a new site**.
+- Open-source code (no obfuscation of any kind).
+- Reviewed and scanned by OneStream authorized personnel before posting.
+- Documented at a minimum with a Quick Start Guide, and Solution Guide where more complex.
+- Supported by the OneStream development community through [OneStream Community](https://community.onestreamsoftware.com/) by members of the community.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+The purpose for this exchange is to foster sharing of knowledge, design approaches, and technical expertise to grow the knowledge of the OneStream community and raise awareness of what can be built with OneStream.
 
-### What you'll need
+This document is intended to be used by OneStream employee developed solutions (Presales, Services & Support), Third-party developers, and Developer Partners on Solution Exchange OpenPlace solutions.
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+These guidelines are part of the process of OneStream accepting a new or updated solution to be listed on OpenPlace. The document is broken out into the areas of work commonly included in current OneStream Marketplace solutions.  
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Following these principles will ensure a consistent look and feel for OpenPlace solutions for those implementing, using, and administering them. Strict naming standards will ensure uniqueness when comingling an OpenPlace solution within an existing application. Utilizing the commenting guidelines, Dashboard layouts with button placement, consistent settings location, standard table creation, and update practices will not only accelerate development but will meet the expectations of the OneStream community.
