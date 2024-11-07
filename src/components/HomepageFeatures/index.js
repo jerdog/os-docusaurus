@@ -6,10 +6,10 @@ import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
-    id: 'partner-place',
-    title: 'PartnerPlace',
+    id: 'partners',
+    title: 'Partner Solutions',
     Svg: require('@site/static/img/partner-place-white.svg').default,
-    url: '/partnerplace/intro/',
+    url: '/partners/intro/',
     color: '#EC764C',
     description: (
       <>
@@ -18,10 +18,10 @@ const FeatureList = [
     ),
   },
   {
-    id: 'open-place',
-    title: 'OpenPlace',
+    id: 'community',
+    title: 'Community Solutions',
     Svg: require('@site/static/img/open-place-white.svg').default,
-    url: '/openplace/intro/',
+    url: '/community/intro/',
     color: '#F2A73D',
     description: (
       <>

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: partnerplaceSidebar
+displayed_sidebar: partnerSidebar
 title: Getting Started
 ---
 

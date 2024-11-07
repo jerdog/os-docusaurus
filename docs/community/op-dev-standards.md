@@ -1,20 +1,20 @@
 ---
 sidebar_position: 2
-title: OpenPlace Solution Development Standards
+title: Community Solutions Solution Development Standards
 sidebar_label: Development Standards
 ---
 
-These OpenPlace Standards, including recommended best practices, are to ensure that OpenPlace Solutions are created that meet OneStream solution development requirements.
+These Community Solutions Standards, including recommended best practices, are to ensure that Community Solutions Solutions are created that meet OneStream solution development requirements.
 
 ### Base Standards
 
-The following are the core coding and development standards that should be in place for any solution submitted to be included in OpenPlace.
+The following are the core coding and development standards that should be in place for any solution submitted to be included in Community Solutions.
 
 _FUTURE: Any solution which meets these base requirements will receive X # OF DEV COMMUNITY POINTS towards their DEV COMMUNITY LEVEL and/or DEV COMMUNITY LEVEL X._
 
 #### Testing
 
-Before submitting solutions to OpenPlace, it is expected that developers have performed reasonable unit testing, performance testing, and quality assurance testing.
+Before submitting solutions to Community Solutions, it is expected that developers have performed reasonable unit testing, performance testing, and quality assurance testing.
 
 - Developers are encouraged to test for any functional issues or bugs.
 - Developers must also perform security testing and provide testing logs to OneStream upon request.

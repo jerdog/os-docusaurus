@@ -1,11 +1,11 @@
 {
     "position": 13,
-    "label": "OpenPlace Templates",
+    "label": "Community Solutions Templates",
     "collapsible": true,
     "collapsed": true,
     "link": {
       "type": "generated-index",
-      "title": "OpenPlace Templates"
+      "title": "Community Solutions Templates"
     },
     "customProps": {
       "description": "This description can be used in the swizzled DocCard"
