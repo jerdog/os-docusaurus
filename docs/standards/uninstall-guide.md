@@ -9,7 +9,7 @@ Solutions in OneStream can significantly enhance your development experience by 
 
 ## How to Uninstall
 
-You will want to have a settings page that has descriptions of Uninstall full, Uninstall UI, as well as buttons that a user can select for both options. If your solution does not have database tables, then you may only want to have one button just for Uninstall UI. Here’s what an end user would do to complete the process:
+You will want to have a settings page that has descriptions of **Uninstall Full**, **Uninstall UI**, as well as buttons that a user can select for both options. If your solution does not have database tables, then you may only want to have one button just for **Uninstall UI**. Here’s what an end user would do to complete the process:
 
 1. Click **Application** > **Solution’s Settings Page** > **Uninstall**
 2. There are two uninstall options:
@@ -117,8 +117,115 @@ private static bool DropSolutionTables(SessionInfo si, DashboardExtenderArgs arg
 
 ### UninstallSolution()
 
-When called this method will uninstall the UI, Business Rules, and drop all the Solution’s related database tables. It calls a combination of the previous 3 methods based on the uninstall type. For example, if a user selects Uninstall UI (uninstall type does not equal “Full”), then only the DeleteProfile and DeleteWorkspace methods are invoked.
+When called this method will uninstall the UI, Business Rules, and drop all the Solution’s related database tables. It calls a combination of the previous 3 methods based on the uninstall type. For example, if a user selects **Uninstall UI** (uninstall type does not equal _“Full”_), then only the `DeleteProfile` and `DeleteWorkspace` methods are invoked.
 
 ```csharp
+private static XFSelectionChangedTaskResult UninstallSolution(SessionInfo si, DashboardExtenderArgs args)
+{
+    // Uninstall UI, BRs and Drop Solution Tables
+    Guid workspaceId = BRApi.Dashboards.Workspaces.GetWorkspaceIDFromName(si, false, "{SolutionName}");
+    string solutionCode = BRApi.Dashboards.Parameters.GetLiteralParameterValue(si, false, workspaceId,
+    "{SolutionCode}");
+    XFSelectionChangedTaskResult selectionChangedTaskResult = new();
+    System.Text.StringBuilder message = new();
+    bool tablesDropped = false;
 
+    if (BRApi.Security.Authorization.IsUserInAdminGroup(si))
+    {
+        // Uninstall the Solution
+        string uninstallType = args.NameValuePairs.XFGetValue("Type", "UI");
+
+        // Evaluate the uninstall type
+        if (uninstallType.XFEqualsIgnoreCase("Full"))
+        {
+            // Drop all associated database tables
+            tablesDropped = DropSolutionTables(si, args, ref message);
+        }
+
+        // Delete Solution Workspace, all child items of that Workspace and the Dashboard Profile
+        if (DeleteProfile(si, args) && DeleteWorkspace(si))
+        {
+            // Log the Uninstall
+            BRApi.ErrorLog.LogMessage(si, $"Solution ({solutionCode}) was uninstalled [Type:
+            {uninstallType}]{Environment.NewLine}");
+        }
+        else
+        {
+            BRApi.ErrorLog.LogMessage(si, "Error: Profile and/or Workspace could NOT be deleted.");
+        }
+    }
+    else
+        BRApi.ErrorLog.LogMessage(si, "Security Error: Adminstration Rights Required to Execute Uninstall.");
+
+    // Set the return value
+    selectionChangedTaskResult.IsOK = true;
+    selectionChangedTaskResult.ShowMessageBox = true;
+    selectionChangedTaskResult.Message = message.ToString();
+    return selectionChangedTaskResult;
+}
 ```
+
+## Drop Table Script
+
+A `DROP TABLE` script in SQL is used to delete an entire table from a database, including all its data and structure. The goal is to remove the table permanently, which can be useful for cleaning up unused tables or resetting a database. However, it's important to use this command with caution, as it cannot be undone and all data in the table will be lost.
+
+When **Uninstall Full** is selected, the `DROP TABLE` script is run. This script will be a SQL command with the tables to dop stored in a TXT file.
+
+```sql
+USE [YourDatabaseName];
+
+DROP TABLE [YourSchemaName].[TableName1];
+DROP TABLE [YourSchemaName].[TableName2];
+DROP TABLE [YourSchemaName].[TableName3];
+```
+
+## Legacy Business Rules
+
+In the newer versions of the OneStream platform, business logic is handled by the solution’s assemblies in the current workspace. If you are running a OneStream platform version prior to 8.x, then your solution may contain legacy business rules, which you likely will want to remove from the application on uninstall. This requires an additional method.
+
+### DropSolutionBRs()
+
+When called this method will uninstall the legacy business rules from the application.
+
+```csharp
+private void DropSolutionBRs(SessionInfo si)
+{
+    // Delete business rules associated with this app
+    var dsbBusinessRules = new Dictionary<string, BusinessRuleType>()
+    {
+        { "{DashboardExtenderBRName}", BusinessRuleType.DashboardExtender },
+        { "{DashboardStringFunctionBRName}", BusinessRuleType.DashboardStringFunction },
+        { "{DashboardDataSetBRName}", BusinessRuleType.DashboardDataSet },
+    };
+
+    if (BRApi.Security.Authorization.IsUserInAdminGroup(si))
+    {
+        var frameworkObject = new Framework();
+        // Get/Delete Dashboard Business Rules
+        foreach (KeyValuePair<string, BusinessRuleType> br in dsbBusinessRules)
+        {
+            var brInfo = frameworkObject.GetBusinessRule(si, false, br.Value, br.Key);
+            if (brInfo != null)
+            {
+                frameworkObject.DeleteBusinessRule(si, false, br.Value, br.Key);
+            }
+        }
+    }
+    else
+    {
+        BRApi.ErrorLog.LogError(si, "Security Error: Administration Rights Required to Execute Uninstall.");
+    }
+}
+```
+
+## Important Considerations
+
+Be sure to extract your solutions as a zip from OneStream so that you can have the current state as a backup before you uninstall. If you uninstall a solution without having an extract, you will lose the current state and any changes that were made.
+
+1. Click **Application** > **Tools** > **Load/Extract**
+2. Select the **Extract** tab
+3. From the **File Type** combo box, select **XF Project**
+4. Click the ellipsis button and a file explorer dialog will appear
+5. Navigate to and select the **xfProj** file for your solution, then hit **Open**
+6. Check the box for **Extract To Zip**
+7. Click **Extract** and save the zip to a destination folder
