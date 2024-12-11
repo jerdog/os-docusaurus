@@ -30,3 +30,10 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-link-hover-decoration: none;  /* remove underline from links */
 }
+
+/* Center tables in the docs */
+table {
+  display: table;
+  width: initial;
+  margin: 0 auto;
+}
