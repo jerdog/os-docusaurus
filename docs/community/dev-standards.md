@@ -4,13 +4,15 @@ title: Community Solutions Solution Development Standards
 sidebar_label: Development Standards
 ---
 
+import { Highlight } from '../../src/components/Highlight/index.js'
+
 These Community Solutions Standards, including recommended best practices, are to ensure that Community Solutions Solutions are created that meet OneStream solution development requirements.
 
 ### Base Standards
 
 The following are the core coding and development standards that should be in place for any solution submitted to be included in Community Solutions.
 
-_FUTURE: Any solution which meets these base requirements will receive X # OF DEV COMMUNITY POINTS towards their DEV COMMUNITY LEVEL and/or DEV COMMUNITY LEVEL X._
+<Highlight color="#25c2a0">_FUTURE: Any solution which meets these base requirements will receive X # OF DEV COMMUNITY POINTS towards their DEV COMMUNITY LEVEL and/or DEV COMMUNITY LEVEL X._</Highlight>
 
 #### Testing
 
@@ -21,7 +23,7 @@ Before submitting solutions to Community Solutions, it is expected that develope
 
 #### API Usage
 
-- Solutions must use the OneStream Business Rule API (BRApi) unless otherwise agreed upon.
+- Solutions must use the OneStream Business Rule API (BRApi) unless an API with equivalent functionality is published or otherwise agreed upon.
 - OneStream may change published and non-published public functions without prior notice. To request access to a non-published function, use the [Unpublished API Request Form](https://forms.office.com/r/pt6YfpyS6C).
 
 #### Security
@@ -40,7 +42,8 @@ Before submitting solutions to Community Solutions, it is expected that develope
 
 #### Installation and Uninstallation
 
-- Solutions must have an installer and an uninstaller that removes all created artifacts and data
+- Solutions must have an installer and an uninstaller that removes all created artifacts and data.
+  - A good resource for what this should look like is the [Solution Starter Kit](https://solutionexchange.onestream.com/Dashboard/home/browse/browse).
 - A partial uninstall routine can also be provided.
 
 #### Naming Convention
@@ -49,7 +52,7 @@ Before submitting solutions to Community Solutions, it is expected that develope
 
 #### Support
 
-- Solutions are community supported via OneStream Community.
+- Solutions are community supported via [OneStream Community](https://community.onestreamsoftware.com/t5/OpenPlace/bd-p/OpenPlace).
 - Developers are encouraged, but not required, to support their solutions.
 
 #### External Libraries

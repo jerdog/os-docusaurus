@@ -9,7 +9,7 @@ const config = {
   title: 'OneStream Solution Exchange Documentation',
   tagline: "Maximize Business Impact With OneStream's Intelligent Finance Platform",
   favicon: 'img/favicon.ico',
-  url: 'https://your-docusaurus-site.example.com',  // Set the production url of your site here
+  url: 'https://os-docusaurus.netlify.app/',  // Set the production url of your site here
   baseUrl: '/',   // Set the /<baseUrl>/ pathname under which your site is served
 
   // colorMode: {
@@ -67,6 +67,9 @@ const config = {
         googleTagManager: false,
         // DEPRECATED: Will be passed to @docusaurus/plugin-google-analytics (only enabled when explicitly specified)
         googleAnalytics: false,
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
       }),
     ],
   ],
@@ -164,6 +167,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['powershell', 'visual-basic', 'csharp'],
       },
     }),
 };
