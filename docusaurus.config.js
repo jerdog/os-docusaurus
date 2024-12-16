@@ -127,6 +127,7 @@ const config = {
         disableInDev: false, // disable the plugin in development mode
       },
     ],
+    'plugin-image-zoom',
   ],
 
   themeConfig:
@@ -210,6 +211,7 @@ const config = {
         darkTheme: prismThemes.dracula,
         additionalLanguages: ['powershell', 'visual-basic', 'csharp'],
       },
+      zoomSelector: '.markdown img',  // CSS selector to apply zoom, from plugin-image-zoom
     }),
 };
 
