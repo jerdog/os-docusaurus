@@ -11,6 +11,9 @@ const config = {
   favicon: 'img/favicon.ico',
   url: 'https://os-docusaurus.netlify.app/',  // Set the production url of your site here
   baseUrl: '/',   // Set the /<baseUrl>/ pathname under which your site is served
+  organizationName: 'OneStream-Developers', // Usually your GitHub org/user name.
+  projectName: 'os-docusaurus', // Usually your repo name.
+  trailingSlash: true,
 
   // colorMode: {
   //   defaultMode: 'light',
@@ -27,6 +30,43 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  markdown: {
+    mermaid: true,
+  },
+
+  // // Tags to insert in the HTML <head>. https://docusaurus.io/docs/api/docusaurus-config#headTags
+  // headTags: [
+  //   {
+  //     tagName: 'link',
+  //     attributes: {
+  //       rel: 'icon',
+  //       type: 'image/png',
+  //       href: '/favicon.png',
+  //     },
+  //   },
+  // ],
+
+  // // An array of scripts to load. https://docusaurus.io/docs/api/docusaurus-config#scripts
+  // scripts: [
+  //   // String format.
+  //   'https://docusaurus.io/script.js',
+  //   // Object format.
+  //   {
+  //     src: 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js',
+  //     async: true,
+  //   },
+  // ],
+
+  // // An array of stylesheets to load. https://docusaurus.io/docs/api/docusaurus-config#stylesheets
+  // stylesheets: [
+  //   // String format.
+  //   'https://docusaurus.io/style.css',
+  //   // Object format.
+  //   {
+  //     href: 'https://mydomain.com/style.css',
+  //   },
+  // ],
 
   presets: [
     [
