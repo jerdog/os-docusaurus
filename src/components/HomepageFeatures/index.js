@@ -33,7 +33,7 @@ const FeatureList = [
     id: 'standards',
     title: 'Standards & Practices',
     Svg: require('@site/static/img/standards.svg').default,
-    url: '/standards/intro/',
+    url: '/standards/overview/',
     color: '#728AC5',
     description: (
       <>
